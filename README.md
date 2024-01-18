@@ -1,30 +1,47 @@
-# Deep_Learning-Loan_Prediction
+Loan Prediction Project
+=======================
 
-In this Project i used a dataset from Kaggle of a Bank.
+Overview
+--------
 
-### Learning Outcomes:
+The Loan Prediction project aims to develop a machine learning model that predicts whether a customer will take a loan or not based on various features provided in the dataset. The project utilizes a dataset named "Bank\_Personal\_Loan\_Modelling.csv" and employs a binary classification approach to classify customers into two categories: those likely to take a loan and those not likely to take a loan.
 
-1) Exploratory Data Analysis
-2) Preparing the data to train a model
-3) Training and making predictions using a classification model
-4) Model evaluation
+Prerequisites
+-------------
 
-Objective:
-The classification goal is to predict the likelihood of a liability customer buying personal loans.
+Before running the code, ensure that you have the necessary Python packages installed. You can install them using the following command:
 
-### Features of the Dataset:
+bashCopy code
 
-##### 1.ID : Customer ID
-##### 2.Age : Customer's age in completed years
-##### 3.Experience : #years of professional experience
-##### 4.Income : Annual income of the customer ($000)
-##### 5.ZIP Code : Home Address ZIP code.
-##### 6.Family : Family size of the customer
-##### 7.CCAvg : Avg. spending on credit cards per month ($000)
-##### 8.Education : Education Level. (1: Undergrad; 2: Graduate; 3: Advanced/Professional)
-##### 9."Mortgage : Value of house mortgage if any. ($000)
-##### 10.Personal Loan : Did this customer accept the personal loan offered in the last campaign?
-##### 11.Securities Account : Does the customer have a securities account with the bank?
-##### 12.CD Account : Does the customer have a certificate of deposit (CD) account with the bank?
-##### 13.Online : Does the customer use internet banking facilities?
-##### 14.Credit card : Does the customer use a credit card issued by
+`pip install pandas numpy matplotlib seaborn klib scikit-learn imbalanced-learn tensorflow shap`
+
+Dataset
+-------
+
+The dataset used in this project is "Bank\_Personal\_Loan\_Modelling.csv," containing information about customers and whether they accepted a personal loan offer or not. The dataset is loaded into a Pandas DataFrame for further processing.
+
+Data Preparation
+----------------
+
+The dataset is prepared for classification by splitting it into training, validation, and test sets. To address class imbalance in the training set, the ADASYN oversampling technique is applied. Additionally, features are scaled using MinMaxScaler, as the dataset does not contain negative values.
+
+Neural Network Model
+--------------------
+
+The machine learning model is implemented using TensorFlow and Keras. The neural network architecture includes an input layer, two dense layers with dropout for regularization, and an output layer with a sigmoid activation function for binary classification. The model is compiled with binary crossentropy loss and the Adam optimizer.
+
+Training and Evaluation
+-----------------------
+
+The model is trained on the oversampled training data and validated on a separate validation set. Training includes reducing the learning rate on plateaus. The model's performance is evaluated on the test set, and accuracy metrics are reported.
+
+Model Performance Visualization
+-------------------------------
+
+The project includes visualizations to assess the model's performance. A plot of accuracy over epochs is generated, and a confusion matrix heatmap is plotted to visualize the correct and wrong classifications. Additionally, the feature importance analysis using SHAP (SHapley Additive exPlanations) is visualized with a summary plot.
+
+
+Results
+-------
+
+The project outputs the accuracy of the model on the test set and provides visualizations for performance assessment. The confusion matrix heatmap and SHAP summary plot help interpret the model's predictions and feature importance.
